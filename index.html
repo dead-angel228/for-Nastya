@@ -26,7 +26,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             animation: fadeIn 2s ease-in-out;
-            margin: 20px;
         }
 
         h1 {
@@ -64,37 +63,6 @@
             transform: scale(1.1);
         }
 
-        .scroll-down {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2em;
-            color: #ff6f61;
-            cursor: pointer;
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-up {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ff6f61;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            border-radius: 50px;
-            cursor: pointer;
-            display: none;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .scroll-up:hover {
-            background: #ff4a3d;
-            transform: scale(1.1);
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -104,15 +72,10 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
     </style>
 </head>
 <body>
-    <div class="container" id="section1">
+    <div class="container">
         <div class="heart">❤️</div>
         <h1>Ты самое важное в моей жизни</h1>
         <p>
@@ -124,18 +87,6 @@
         <button class="button" onclick="showResponse()">Ответь мне</button>
     </div>
 
-    <div class="scroll-down" onclick="scrollToSection('section2')">👇</div>
-
-    <div class="container" id="section2" style="margin-top: 100vh;">
-        <h1>Почему ты?</h1>
-        <p>
-            Потому что с тобой я чувствую себя самым счастливым человеком на свете. Ты вдохновляешь меня, поддерживаешь и делаешь лучше. Я хочу быть с тобой всегда.
-        </p>
-        <div class="heart">❤️</div>
-    </div>
-
-    <button class="scroll-up" onclick="scrollToTop()">↑</button>
-
     <script>
         function showResponse() {
             const response = confirm("Ты согласна стать моей девушкой? ❤️");
@@ -145,19 +96,6 @@
                 alert("Я буду ждать, пока ты не скажешь 'да'. Ты того стоишь! 💕");
             }
         }
-
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        window.addEventListener('scroll', () => {
-            const scrollUpButton = document.querySelector('.scroll-up');
-            scrollUpButton.style.display = window.scrollY > 500 ? 'block' : 'none';
-        });
     </script>
 </body>
 </html>
